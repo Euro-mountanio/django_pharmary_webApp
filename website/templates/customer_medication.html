@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<h1>drugs sold </h1>
+<h1>The Total is :{{ total_sum }}</h1>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Medication Name</th>
+      <th scope="col">quantity</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+{% with my_variable=0.0%}
+The Total is :{{ total_sum }}
+
+	{% for record in records %}
+		<tr>
+			<td>
+              {{ record.drug_name  }}
+            </td>
+			<td>{{ record.quantity }}</td>
+			<td>{{ record.price }}</td>
+
+
+
+    {% endfor %}
+
+{% endwith %}
+
+
+{% if medication %}
+    {% for medication in medications %}
+        <tr>
+            <td>
+              {{ record.medication }}
+            </td>
+			<td></td>
+			<td></td>
+        </tr>
+    {% endfor %}
+    {% endif %}
+
+
+	  </tbody>
+	</table>
+
+{% endblock %}

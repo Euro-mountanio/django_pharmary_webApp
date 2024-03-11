@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+
+<div class="card">
+  <div class="card-header"><strong> Drug Record </strong>
+  </div>
+  <div class="card-body">
+
+
+
+<p class="card-text">
+<strong>Email: </strong>{{ drug_record.drug_name }}</p>
+
+
+
+<p class="card-text">
+<strong>price: </strong>{{ drug_record.price }}</p>
+
+<p class="card-text">
+<strong>quantity: </strong>{{ drug_record.quantity_purchased }}</p>
+
+
+<p class="card-text">
+<strong>Purchased On: </strong>{{ drug_record.date_purchased }}</p>
+
+<p class="card-text">
+<strong>Expire Date: </strong>{{ drug_record.expire_date}}</p>
+
+<p class="card-text">
+<strong>ID: </strong>{{ drug_record.id }}</p>
+
+
+  </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'drug' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'delete_drug' drug_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_drug' drug_record.id %}" class="btn btn-secondary">Update Record</a>
+
+
+{% endblock %}

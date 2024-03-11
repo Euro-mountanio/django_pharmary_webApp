@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<h1> sold drugs </h1>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Drug Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+{% with my_variable=0.0%}
+
+
+	{% for sale in sales %}
+		<tr>
+			<td>{{ sale.drug_name }}</td>
+			<td>{{ sale.quantity_sold }}</td>
+			<td>{{ sale.price }}</td>
+
+
+
+    {% endfor %}
+
+{% endwith %}
+
+
+
+
+	  </tbody>
+	</table>
+
+{% endblock %}
+

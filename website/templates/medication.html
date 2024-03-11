@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+
+<div class="col-md-6 offset-md-3">
+
+ <h1 style="color: blue ;"> Add Drug </h1>
+
+<br/>
+
+<form method="POST" action="{% url 'medication' %}" style="color: blue ">
+	{% csrf_token %}
+
+	{{ form.as_p }}
+
+
+<br/>
+  <button type="submit" class="btn btn-secondary">Add medication</button>
+   <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+
+{% endblock %}
